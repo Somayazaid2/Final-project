@@ -13,14 +13,7 @@ const routes: Routes = [
   {path:"login",component:LoginuserComponent},
   {path:"product", component:AddProuductComponent},
   {path:"allproduct",component:MyProductComponent},
-  //{path:"", component:AllusersComponent},
-  //{path:"login", component:LoginComponent},
-  //{path:"user", children:[
-   // {path:"", component:ProfileComponent},
-    //{path:"show/:id", component:SingleuserComponent},
-   // {path:"edit/:id", component:UsercardComponent},
-   // {path:"delete/:id", component:RegisterComponent}
-  //]},
+  
   {path:"**", component:Err404Component}
 
 ];

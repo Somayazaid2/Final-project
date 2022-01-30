@@ -88,7 +88,7 @@ router.get("/stats", verifyTokenAndAdmin, async (req, res) => {
 //LOGOUT
 router.post("/out",verifyToken,async(req,res)=>{
   try{
-        req.user.accessToken != req.accessToken
+        req.user.token != req.accessToken
        // await req.user.save()
         res.status(200).send("logged out")
 }
