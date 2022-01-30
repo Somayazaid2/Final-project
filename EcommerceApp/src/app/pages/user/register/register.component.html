@@ -1,0 +1,31 @@
+<section class="container my-4">
+    <form [formGroup]="registerUser" (ngSubmit)="handleRegisterForm(registerUser)">
+        <h4 class="text-primary text-center my-4 text-decoration-underline">Register Form</h4>
+        <div class="alert alert-danger" *ngIf="msg!=''">{{msg}}</div>
+        <div class="form-group">
+            <label>Enter Your User Name</label><br>
+            <input [ngClass]="{'form-control':true, 'is-invalid':username?.invalid && (y)}" placeholder="username"
+                formControlName="username" (blur)="onBlur()">
+            <div class="alert alert-danger m-0 p-0" *ngIf="username?.invalid">
+                <p *ngIf="username?.errors">username is required</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label> Enter Your E-Mail</label><br>
+            <input [ngClass]="{'form-control':true, 'is-invalid':email?.invalid && (y)}" placeholder="email"
+                formControlName="email" (blur)="onBlur()">
+            <div class="alert alert-danger m-0 p-0" *ngIf="email?.invalid">
+                <p *ngIf="email?.errors">e-mail is required and must be Valid email</p>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label> Enter Password</label><br>
+            <input type="password" class="form-control" placeholder="Password" formControlName="password">
+            <div class="alert alert-danger m-0 p-0" *ngIf="password?.invalid">
+                <p *ngIf="password?.errors">password is required</p>
+            </div>
+        </div>
+        <button class="btn btn-primary" (click)="submit()">submit</button>
+    </form>
+</section>

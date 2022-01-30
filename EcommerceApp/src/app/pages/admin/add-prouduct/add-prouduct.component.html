@@ -1,0 +1,55 @@
+<section class="container my-3">
+    <h2>Add New Product</h2>
+    <form #addProduct="ngForm" (ngSubmit)="handelAddProduct(addProduct)" >
+        <div class="mb-3">
+            <label>title</label>
+            <input class="form-control" name="title" #title="ngModel" ngModel
+            required >
+            <div class="mt-2 alert alert-danger" *ngIf="title.invalid &&(title.touched || addProduct.submitted)" >
+                <p *ngIf="title.errors?.['required']">title is required</p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label>Description</label>
+            <input class="form-control" name="description" #desc="ngModel" ngModel required>
+            <div class="mt-2 alert alert-danger" *ngIf="desc.invalid &&(desc.touched || addProduct.submitted)" >
+                <p *ngIf="desc.errors?.['required']"> description is required</p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label>Categories</label>
+            <input class="form-control" name="categories" #cate="ngModel" ngModel required>
+            <div class="mt-2 alert alert-danger" *ngIf="cate.invalid &&(cate.touched || addProduct.submitted)" >
+                <p *ngIf="cate.errors?.['required']"> categories is required</p>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label>Size</label>
+            <input class="form-control" name="size" #size="ngModel" ngModel > 
+        </div>
+        <div class="mb-3">
+            <label>Color</label>
+            <input class="form-control" name="color" #color="ngModel" ngModel > 
+        </div>
+        <div class="mb-3">
+            <label>Price</label>
+            <input class="form-control" type="number" name="price" #price="ngModel" ngModel required>
+            <div class="mt-2 alert alert-danger" *ngIf="price.invalid &&(price.touched || addProduct.submitted)" >
+                <p *ngIf="price.errors?.['required']"> price is required</p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label>Image</label>
+            <input class="form-control" type="file" name="image" #img="ngModel" ngModel required>
+            <div class="mt-2 alert alert-danger" *ngIf="img.invalid &&(img.touched || addProduct.submitted)" >
+                <p *ngIf="img.errors?.['required']"> Image is required</p>
+            </div>
+        </div>
+        
+        
+        <div class="mb-3">
+            <button class="btn btn-primary">Add Product</button>
+        </div>
+    </form>
+</section>

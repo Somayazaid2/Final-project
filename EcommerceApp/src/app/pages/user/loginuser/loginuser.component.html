@@ -1,0 +1,31 @@
+<div class="row justify-content-center login">
+    <form class="col-md-6 col-12 text-center border border-3 rounded p-4 my-4" #login="ngForm"
+        (ngSubmit)="handleLogin(login)">
+        <h4 class="text-primary text-center my-4 text-decoration-underline">Login</h4>
+        <div class="alert alert-danger" *ngIf="msg!=''"> error ? {{msg}}</div>
+        <div class="mb-3">
+            <input [ngClass]="{'form-control':true, 'is-invalid':username.invalid && (x || login.submitted)}"
+                placeholder="enter your username " name="username" #username="ngModel" [(ngModel)]="user.username" text
+                required (blur)="onBlur()">
+            <div class="alert alert-danger m-0 p-0" *ngIf="username.invalid && (x || login.submitted)">
+                <p *ngIf="username.errors?.['required']" class="p-0 m-0">username is required</p>
+                <p *ngIf="username.errors?.['username']">please enter a valid username</p>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <input class="form-control" placeholder="enter your password" name="password" #password="ngModel"
+                [(ngModel)]="user.password" required >
+            <div class="alert alert-danger" *ngIf="password.invalid && (password.touched || login.submitted)">
+                <p *ngIf="password.errors?.['required']">password is required</p>
+                <p *ngIf="password.errors?.['minlength'] || password.errors?.['maxlength']">password must be between 6
+                    and 20 characters</p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">Login</button>
+            <br><br>
+            <a routerLink="/register" class="text-primary">Or Register new Account</a>
+        </div>
+    </form>
+</div>
